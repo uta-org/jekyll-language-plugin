@@ -7,8 +7,6 @@ module Jekyll
 
     def read(files)
       read_orig(files).flat_map do |page|
-        # Jekyll.logger.info "Lang-debug: ", "Name: " + page.name + " => " + page.dir
-          
         lpages = []
         #TODO: this is a bit hacky. It would be better to directly have access to @dir instance variable
         path = page.url_placeholders[:path]
@@ -34,12 +32,10 @@ module Jekyll
         end
           
         if (lpage.language or lpage.languages) and lpage["permalink"].nil?
-            # Jekyll.logger.info "Lang-debug: ", page.dir + page.name
-            # page['language'] = 'en'
+            # If the page doesn't have a defined permalink (it's not forced to be in any specific @dir) then add it to the list
             lpages << page
         end
-          
-        # Jekyll.logger.info "Lang-debug: ", lpages.to_json
+
         lpages
       end
     end

@@ -7,8 +7,6 @@ module Jekyll
 
     def read_content(dir, magic_dir, matcher)
       read_content_orig(dir, magic_dir, matcher).flat_map do |document|
-        # Jekyll.logger.info "Lang-debug: ", document.path
-          
         ldocument = LanguageDocument.new(document.path, { site: @site, collection: @site.posts })
         ldocument.read
 
