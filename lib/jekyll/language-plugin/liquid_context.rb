@@ -10,9 +10,12 @@ module Jekyll
 
       def self.get_language(context)
         language = context.registers[:page]['language']
-
+        # Jekyll.logger.info "LL-debug: ", context.registers[:page].to_json
+        default_lang = context.registers[:site].config["default_language"]
+          
         if language.to_s.empty?
-          raise Jekyll::LanguagePlugin::PluginError.new('No language specified for current page or post.')
+          # raise Jekyll::LanguagePlugin::PluginError.new('No language specified for current page or post.')
+          language = default_lang
         end
 
         language

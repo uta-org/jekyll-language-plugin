@@ -30,6 +30,7 @@ module Jekyll
         end
       end
 
+      # Jekyll.logger.info "Lang-debug: ", result
       result
     end
   end

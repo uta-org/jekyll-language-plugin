@@ -27,7 +27,7 @@ module Jekyll
             end
           end
 
-           Jekyll::LanguagePlugin::LiquidContext.get_language_string(context, key, tokens)
+          Jekyll::LanguagePlugin::LiquidContext.get_language_string(context, key, tokens)
         end
       end
     end
